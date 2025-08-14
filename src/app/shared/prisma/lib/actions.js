@@ -1,0 +1,41 @@
+import bcrypt from "bcryptjs";
+import { executeAction } from "./executeAction";
+import { signUpSchema } from "../lib/schema";
+import db from "./db";
+
+
+
+const signUp = async (data) => {
+  return executeAction({
+    actionFn: async () => {
+      const validatedData = signUpSchema.parse(data);
+
+      const hashedPassword = await bcrypt.hash(validatedData.password, 10);
+
+      const existingUser = await db.user.findUnique({
+        where: { email: validatedData.email.toLowerCase() },
+      });
+
+      if (existingUser)
+        throw new Error("Пользователь с таким email уже существует");
+
+      await db.$transaction(async (prisma) => {
+        const user = await prisma.user.create({
+          data: {
+            name: validatedData.name,
+            email: validatedData.email.toLowerCase(),
+            password: hashedPassword,
+          },
+        });
+        await prisma.cart.create({
+          data: {
+            userId: user.id,
+          },
+        });
+      });
+    },
+    successMessage: "Успешная регистрация",
+  });
+};
+
+export { signUp };

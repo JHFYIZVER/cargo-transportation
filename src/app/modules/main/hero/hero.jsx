@@ -13,7 +13,7 @@ const Hero = () => {
       }}
     >
       <div className="text-white text-center border border-primary mb-10 max-w-4xl w-full p-6 md:p-10">
-        <h1 className="text-3xl md:text-5xl lg:text-6xl font-black mb-4">
+        <h1 className="text-3xl md:text-5xl lg:text-6xl font-black mb-4 uppercase">
           Грузовые перевозки
         </h1>
         <p className="text-xs sm:text-base md:text-xl lg:text-2xl">

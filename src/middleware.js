@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { getToken } from "next-auth/jwt";
-import { getUserRole } from "./features/user/lib/get-user-role";
+import { getUserRole } from "./lib/get-user-role";
+
 
 const ROUTES = {
   public: {
@@ -75,6 +76,5 @@ export const config = {
     "/auth/:path*",
     // Приватные роуты
     "/profile/:path*",
-    ,
   ],
 };

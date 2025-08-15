@@ -5,7 +5,7 @@ import Footer from "./modules/footer/footer";
 
 const lato = Lato({
   weight: ["400", "700"],
-  subsets: ["latin", "cyrillic"],
+  subsets: ["latin"],
   variable: "--font-lato",
 });
 

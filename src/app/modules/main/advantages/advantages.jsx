@@ -11,7 +11,7 @@ import { FaPeopleCarry } from "react-icons/fa";
 const Advantages = () => {
   return (
     <section className="px-5 py-20 text-white mt-10 bg-[#282A2D]">
-      <CustomSubTitle text={"наши приемущества"} />
+      <CustomSubTitle text={"наши преимущества"} />
       <div className="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-4 mt-10">
         <Card className="group text-center shadow-none hover:bg-primary transition-colors duration-300 border-none">
           <div className="rounded-full size-15 mx-auto bg-primary group-hover:bg-white transition-colors duration-300 flex items-center justify-center">

@@ -20,7 +20,7 @@ const AboutUs = () => {
           ваш надежный партнер в грузоперевозках!
         </p>
         <div className="bg-[#282A2D] w-full p-10 grid grid-cols-1 text-center sm:grid-cols-2">
-          <Card className="group hover:bg-primary transition-colors duration-300 border-none">
+          <Card className="group hover:bg-primary transition-colors duration-300 border-none max-h-40">
             <CardHeader>
               <CardTitle className="text-[#2F343A] transition-colors duration-300 font-bold text-lg md:text-xl lg:text-5xl group-hover:text-white">
                 340
@@ -33,7 +33,7 @@ const AboutUs = () => {
               </CardDescription>
             </CardContent>
           </Card>
-          <Card className="group hover:bg-primary transition-colors duration-300 border-none">
+          <Card className="group hover:bg-primary transition-colors duration-300 border-none max-h-40">
             <CardHeader>
               <CardTitle className="text-[#2F343A] transition-colors duration-300 font-bold text-lg md:text-xl lg:text-5xl group-hover:text-white">
                 68
@@ -55,7 +55,7 @@ const AboutUs = () => {
               className="object-cover w-full h-full"
             />
           </Card>
-          <Card className="group hover:bg-primary transition-colors duration-300 border-none">
+          <Card className="group hover:bg-primary transition-colors duration-300 border-none max-h-40">
             <CardHeader>
               <CardTitle className="text-[#2F343A] transition-colors duration-300 font-bold text-lg md:text-xl lg:text-5xl group-hover:text-white">
                 1500+

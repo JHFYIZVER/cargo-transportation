@@ -23,6 +23,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="ru">
+      <head>
+        <link rel="preload" href="/hero.png" as="image" />
+      </head>
       <body
         className={`${lato.variable} ${russoOne.variable} antialiased bg-background`}
       >

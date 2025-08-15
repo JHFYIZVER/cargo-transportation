@@ -1,5 +1,4 @@
 import { CustomLink } from "@/app/shared/ui/custom-link";
-import React from "react";
 
 const Hero = () => {
   return (

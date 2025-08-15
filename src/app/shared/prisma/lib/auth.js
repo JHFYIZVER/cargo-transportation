@@ -2,7 +2,7 @@ import bcrypt from "bcryptjs";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
-import { signInSchema } from "../lib/schema";
+import { signInSchema } from "./schema";
 import db from "./db";
 
 const adapter = PrismaAdapter(db);

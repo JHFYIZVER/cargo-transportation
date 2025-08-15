@@ -1,10 +1,7 @@
 import bcrypt from "bcryptjs";
-import { executeAction } from "./executeAction";
-import { signUpSchema } from "../lib/schema";
 import db from "./db";
-
-
-
+import { signUpSchema } from "./schema";
+import { executeAction } from "./executeAction";
 const signUp = async (data) => {
   return executeAction({
     actionFn: async () => {
@@ -19,19 +16,13 @@ const signUp = async (data) => {
       if (existingUser)
         throw new Error("Пользователь с таким email уже существует");
 
-      await db.$transaction(async (prisma) => {
-        const user = await prisma.user.create({
-          data: {
-            name: validatedData.name,
-            email: validatedData.email.toLowerCase(),
-            password: hashedPassword,
-          },
-        });
-        await prisma.cart.create({
-          data: {
-            userId: user.id,
-          },
-        });
+      await db.user.create({
+        data: {
+          name: validatedData.name,
+          surname: validatedData.surname,
+          email: validatedData.email.toLowerCase(),
+          password: hashedPassword,
+        },
       });
     },
     successMessage: "Успешная регистрация",

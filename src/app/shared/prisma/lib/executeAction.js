@@ -18,7 +18,8 @@ const executeAction = async ({
 
     return {
       success: false,
-      message: "An error has occurred during executing the action",
+      message:
+        error.message || "An error has occurred during executing the action",
     };
   }
 };

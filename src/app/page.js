@@ -1,6 +1,8 @@
-import Advantages from "./modules/main/advantages/advantages";
-import Hero from "./modules/main/hero/hero";
 import PopularService from "./modules/main/popular-service/popular-service";
+import Advantages from "./modules/main/advantages/advantages";
+import Questions from "./modules/main/questions/questions";
+import AboutUs from "./modules/main/about-us/about-us";
+import Hero from "./modules/main/hero/hero";
 
 export default async function Home() {
   return (
@@ -8,6 +10,8 @@ export default async function Home() {
       <Hero />
       <PopularService />
       <Advantages />
+      <AboutUs />
+      <Questions />
     </main>
   );
 }

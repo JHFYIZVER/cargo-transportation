@@ -19,7 +19,7 @@ const Contacts = () => {
       <h1 className="text-3xl md:text-5xl lg:text-6xl font-black mb-4 uppercase text-white">
         Контакты
       </h1>
-      <div className="flex justify-between gap-10">
+      <div className="flex flex-col lg:flex-row justify-between gap-10">
         <div className="flex flex-col space-y-6 max-w-xl w-full">
           <Card className="bg-[#282A2D] max-w-xl w-full text-white border-none">
             <CardHeader>

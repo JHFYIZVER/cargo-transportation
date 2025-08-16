@@ -22,7 +22,7 @@ const AboutUs = () => {
         <div className="bg-[#282A2D] w-full p-10 grid grid-cols-1 text-center sm:grid-cols-2">
           <Card className="group hover:bg-primary transition-colors duration-300 border-none max-h-40">
             <CardHeader>
-              <CardTitle className="text-[#2F343A] transition-colors duration-300 font-bold text-lg md:text-xl lg:text-5xl group-hover:text-white">
+              <CardTitle className="text-[#2F343A] transition-colors duration-300 font-bold text-3xl md:text-4xl lg:text-5xl group-hover:text-white">
                 340
               </CardTitle>
             </CardHeader>
@@ -35,7 +35,7 @@ const AboutUs = () => {
           </Card>
           <Card className="group hover:bg-primary transition-colors duration-300 border-none max-h-40">
             <CardHeader>
-              <CardTitle className="text-[#2F343A] transition-colors duration-300 font-bold text-lg md:text-xl lg:text-5xl group-hover:text-white">
+              <CardTitle className="text-[#2F343A] transition-colors duration-300 font-bold text-3xl md:text-4xl lg:text-5xl group-hover:text-white">
                 68
               </CardTitle>
             </CardHeader>
@@ -57,7 +57,7 @@ const AboutUs = () => {
           </Card>
           <Card className="group hover:bg-primary transition-colors duration-300 border-none max-h-40">
             <CardHeader>
-              <CardTitle className="text-[#2F343A] transition-colors duration-300 font-bold text-lg md:text-xl lg:text-5xl group-hover:text-white">
+              <CardTitle className="text-[#2F343A] transition-colors duration-300 font-bold text-3xl md:text-4xl lg:text-5xl group-hover:text-white">
                 1500+
               </CardTitle>
             </CardHeader>

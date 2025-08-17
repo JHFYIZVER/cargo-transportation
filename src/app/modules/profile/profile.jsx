@@ -54,7 +54,7 @@ const Profile = async () => {
           <div className="flex flex-col gap-4">
             <CustomLink className="w-fit" href={"/profile/orders"}>Мои заказы</CustomLink>
             {userData.role === "ADMIN" && (
-              <CustomLink className="w-fit" href={"/profile/orders"}>Админ панель</CustomLink>
+              <CustomLink className="w-fit" href={"/dashboard/admin"}>Админ панель</CustomLink>
             )}
           </div>
         </CardContent>

@@ -24,7 +24,7 @@ const Admin = async () => {
             defaultValue="list"
             className="flex gap-6 lg:flex-row justify-between"
           >
-            <TabsList className="flex flex-col h-auto max-w-64 w-full space-y-2">
+            <TabsList className="flex flex-col h-auto max-h-36 max-w-64 w-full space-y-2">
               <TabsTrigger
                 value="list"
                 className="w-full justify-start py-3 px-4 cursor-pointer mb-0"
@@ -45,7 +45,7 @@ const Admin = async () => {
               </TabsTrigger>
             </TabsList>
 
-            <div>
+            <div className="w-full">
               <TabsContent value="list" className="mt-0">
                 <VehicleList vehicles={vehicles} />
               </TabsContent>

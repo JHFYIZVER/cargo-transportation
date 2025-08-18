@@ -18,17 +18,23 @@ import {
 import { cn } from "@/lib/utils";
 import { CustomLink } from "./custom-link";
 
-const VehicleCard = () => {
+const VehicleCard = ({ vehicle }) => {
   const [isExpanded, setIsExpanded] = useState(false);
+
   return (
     <Card className="flex flex-col sm:justify-between sm:flex-row sm:items-center w-full gap-3 h-auto bg-[#282A2D] border-none text-white max-w-5xl">
       <CardHeader className="flex w-full max-w-xs items-center justify-center">
-        <div className="min-w-60 min-h-40 bg-black"></div>
+        <Image
+          src={`/vehicle/${vehicle.image}`}
+          alt={vehicle.name}
+          width={300}
+          height={300}
+        />
       </CardHeader>
       <CardContent className="flex flex-col lg:flex-row lg:items-center gap-5">
         <div>
           <CardTitle className="flex items-center gap-2 font-bold text-lg md:text-2xl mb-3">
-            Фургон 3 метра
+            {vehicle.name}
             <NavigationMenu>
               <NavigationMenuItem className="list-none">
                 <NavigationMenuTrigger className="h-6 p-1">
@@ -39,22 +45,22 @@ const VehicleCard = () => {
                     <div className="space-y-2 flex items-center justify-between max-w-28 w-full text-sm font-medium">
                       <p className="m-0">Длина</p>
                       <div className="flex-1 border-b border-dotted border-black mx-1 h-4"></div>
-                      <span>2м</span>
+                      <span>{vehicle.length}м</span>
                     </div>
                     <div className="space-y-2 flex items-center justify-between max-w-28 w-full text-sm font-medium">
                       <p className="m-0">Высота</p>
                       <div className="flex-1 border-b border-dotted border-black mx-1 h-4"></div>
-                      <span>2м</span>
+                      <span>{vehicle.height}м</span>
                     </div>
                     <div className="space-y-2 flex items-center justify-between max-w-28 w-full text-sm font-medium">
                       <p className="m-0">Ширина</p>
                       <div className="flex-1 border-b border-dotted border-black mx-1 h-4"></div>
-                      <span>2м</span>
+                      <span>{vehicle.width}м</span>
                     </div>
                     <div className="space-y-2 flex items-center justify-between max-w-28 w-full text-sm font-medium">
                       <p className="m-0">Объем</p>
                       <div className="flex-1 border-b border-dotted border-black mx-1 h-4"></div>
-                      <span>2м</span>
+                      <span>{vehicle.volume}м</span>
                     </div>
                   </div>
                 </NavigationMenuContent>
@@ -69,14 +75,11 @@ const VehicleCard = () => {
                 "line-clamp-3 leading-snug text-muted-foreground transition-all duration-300"
             )}
           >
-            Увеличенный по сравнению с тентованной версией объём и жёсткий кузов
-            для городских грузоперевозок. Фургон позволяет надёжно расставлять и
-            закреплять груз, что немаловажно при квартирном переезде или
-            транспортировке груза с коммерческой целью.
+            {vehicle.description}
           </CardDescription>
         </div>
         <CustomLink href={"/price"} className="w-fit">
-          Заказать от 500₽
+          Заказать от {vehicle.basePrice}₽
         </CustomLink>
       </CardContent>
     </Card>

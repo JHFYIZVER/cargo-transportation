@@ -1,7 +1,7 @@
 import { Lato, Russo_One } from "next/font/google";
-import "./globals.css";
 import Header from "./modules/header/header";
 import Footer from "./modules/footer/footer";
+import "./globals.css";
 
 const lato = Lato({
   weight: ["400", "700"],

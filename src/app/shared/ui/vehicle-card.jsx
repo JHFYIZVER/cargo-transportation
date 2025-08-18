@@ -40,7 +40,7 @@ const VehicleCard = ({ vehicle }) => {
                 <NavigationMenuTrigger className="h-6 p-1">
                   <IoMdInformationCircle className="text-lg" />
                 </NavigationMenuTrigger>
-                <NavigationMenuContent className="w-30 md:w-65">
+                <NavigationMenuContent className="w-30 md:w-65 left-0">
                   <div className="grid w-full grid-cols-1 md:grid-cols-2 gap-2">
                     <div className="space-y-2 flex items-center justify-between max-w-28 w-full text-sm font-medium">
                       <p className="m-0">Длина</p>

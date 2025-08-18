@@ -2,7 +2,6 @@ import { NextResponse } from "next/server";
 import { getToken } from "next-auth/jwt";
 import { getUserRole } from "./lib/get-user-role";
 
-
 const ROUTES = {
   public: {
     auth: "/auth",
@@ -12,7 +11,7 @@ const ROUTES = {
     profile: "/profile",
     dashboard: "/dashboard",
     cart: "/cart",
-    admin: "/profile/admin",
+    admin: "/dashboard/admin",
   },
   defaultRedirect: {
     auth: "/profile",
@@ -23,7 +22,6 @@ const ROUTES = {
 
 export default async function middleware(request) {
   const { pathname } = request.nextUrl;
-
   const session = await getToken({
     req: request,
     secret: process.env.NEXTAUTH_SECRET,
@@ -36,9 +34,8 @@ export default async function middleware(request) {
         new URL(ROUTES.defaultRedirect.unAuth, request.url)
       );
     }
-
     const userRole = await getUserRole(session.sub);
-    if (userRole?.role !== "admin") {
+    if (userRole?.role !== "ADMIN") {
       return NextResponse.redirect(
         new URL(ROUTES.defaultRedirect.noPermission, request.url)
       );

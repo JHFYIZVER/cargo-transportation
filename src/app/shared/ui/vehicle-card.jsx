@@ -24,17 +24,21 @@ const VehicleCard = ({ vehicle }) => {
   return (
     <Card className="flex flex-col sm:justify-between sm:flex-row sm:items-center w-full gap-3 h-auto bg-[#282A2D] border-none text-white max-w-5xl">
       <CardHeader className="flex w-full max-w-xs items-center justify-center">
-        <Image
-          src={`/vehicle/${vehicle.image}`}
-          alt={vehicle.name}
-          width={300}
-          height={300}
-        />
+        <div className="relative w-full group overflow-hidden rounded-lg">
+          <Image
+            src={`/vehicle/${vehicle.image}`}
+            alt={vehicle.name}
+            width={300}
+            height={300}
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity" />
+        </div>
       </CardHeader>
       <CardContent className="flex flex-col lg:flex-row lg:items-center gap-5">
         <div>
           <CardTitle className="flex items-center gap-2 font-bold text-lg md:text-2xl mb-3">
-            {vehicle.name}
+            <p className="max-w-60 lg:max-w-none">{vehicle.name}</p>
             <NavigationMenu>
               <NavigationMenuItem className="list-none">
                 <NavigationMenuTrigger className="h-6 p-1">

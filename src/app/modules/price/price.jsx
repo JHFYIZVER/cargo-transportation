@@ -1,8 +1,8 @@
+import PriceCard from "@/app/shared/ui/price-card";
 import VehicleCardSkeleton from "@/app/shared/ui/vehicle-card-skeleton";
-import VehicleCard from "@/app/shared/ui/vehicle-card";
-import React, { Suspense } from "react";
 import VehicleTypeTabs from "@/app/shared/ui/vehicle-type-tabs";
 import { getAllAutopark } from "@/lib/get-autopark";
+import React, { Suspense } from "react";
 
 const TabContent = ({ selectedType }) => {
   return (
@@ -16,18 +16,18 @@ const TabContent = ({ selectedType }) => {
         </div>
       }
     >
-      <AutoparkContent selectedType={selectedType} />
+      <PriceContent selectedType={selectedType} />
     </Suspense>
   );
 };
 
-const AutoparkContent = async ({ selectedType }) => {
+const PriceContent = async ({ selectedType }) => {
   const autopark = await getAllAutopark(selectedType);
 
   return (
     <div className="flex flex-col space-y-6 items-center">
       {autopark.length > 0 ? (
-        autopark.map((item) => <VehicleCard key={item.id} vehicle={item} />)
+        autopark.map((item) => <PriceCard key={item.id} vehicle={item} />)
       ) : (
         <p className="text-white">Транспорт данного типа не найден</p>
       )}
@@ -35,20 +35,17 @@ const AutoparkContent = async ({ selectedType }) => {
   );
 };
 
-const Autopark = async ({ searchParams }) => {
+const Price = async ({ searchParams }) => {
   const selectedType = (await searchParams).type;
-
   return (
     <section>
       <h1 className="text-3xl md:text-5xl lg:text-6xl font-black mb-4 uppercase text-white">
-        Автопарк
+        Цены
       </h1>
-
-      <VehicleTypeTabs selectedType={selectedType} href={"autopark"} />
-
+      <VehicleTypeTabs selectedType={selectedType} href={"price"} />
       <TabContent selectedType={selectedType} />
     </section>
   );
 };
 
-export default Autopark;
+export default Price;

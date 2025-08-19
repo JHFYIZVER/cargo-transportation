@@ -26,7 +26,7 @@ const MenuBar = () => {
             <SheetClose asChild>
               <Link
                 href={"/"}
-                className="header-logo text-white cursor-pointer text-xl font-black flex items-center gap-1"
+                className="header-logo text-white cursor-pointer text-xl w-fit font-black flex items-center gap-1"
               >
                 <Image src={"/logo.svg"} alt="logo" width={30} height={30} />
                 Перевоз.OFF
@@ -37,16 +37,24 @@ const MenuBar = () => {
         <div className="flex flex-col items-start px-4">
           <ul className="font-semibold text-white text-lg flex flex-col gap-5">
             <li>
-              <Link href={"/"}>Главная</Link>
+              <SheetClose asChild>
+                <Link href={"/"}>Главная</Link>
+              </SheetClose>
             </li>
             <li>
-              <Link href={"/price"}>Цены</Link>
+              <SheetClose asChild>
+                <Link href={"/price"}>Цены</Link>
+              </SheetClose>
             </li>
             <li>
-              <Link href={"/autopark"}>Автопарк</Link>
+              <SheetClose asChild>
+                <Link href={"/autopark"}>Автопарк</Link>
+              </SheetClose>
             </li>
             <li>
-              <Link href={"/contact"}>Контакты</Link>
+              <SheetClose asChild>
+                <Link href={"/contact"}>Контакты</Link>
+              </SheetClose>
             </li>
           </ul>
         </div>

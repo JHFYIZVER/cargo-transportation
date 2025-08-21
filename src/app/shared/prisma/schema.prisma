@@ -109,7 +109,9 @@ model Order {
   id               String   @id @default(cuid())
   userId           String   @map("user_id")
   vehicleId        String   @map("vehicle_id")
-  submissionTime   DateTime @default(now())
+  submissionTime   String
+  applicationDate  DateTime
+  phone            String?
   duration         Float   
   loadingAddress   String   
   unloadingAddress String   

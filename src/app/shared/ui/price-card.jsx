@@ -3,12 +3,16 @@ import React, { useState } from "react";
 import { Card, CardHeader, CardTitle, CardContent } from "./card";
 import Image from "next/image";
 import { Button } from "./button";
-
 import { Info, Truck, Clock, Ruler, Box } from "lucide-react";
+import OrderModal from "@/app/modules/order-modal/order-modal";
 
-const PriceCard = ({ vehicle }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedHours, setSelectedHours] = useState(1);
+const PriceCard = ({ vehicle, allVehicles }) => {
+  const [modalState, setModalState] = useState({
+    isOpen: false,
+    hours: 1,
+    price: 0,
+    isCustomHour: false, // Добавляем флаг для дополнительного часа
+  });
 
   const calculatePrice = (hours) => {
     if (vehicle.type === "TANKER") return 15000;
@@ -19,8 +23,28 @@ const PriceCard = ({ vehicle }) => {
   };
 
   const handleOrderClick = (hours) => {
-    setSelectedHours(hours);
-    setIsModalOpen(true);
+    setModalState({
+      isOpen: true,
+      hours,
+      price: calculatePrice(hours),
+      isCustomHour: hours === 4,
+    });
+  };
+
+  const handleCustomHourClick = () => {
+    setModalState({
+      isOpen: true,
+      hours: 1,
+      price: 0,
+      isCustomHour: true,
+    });
+  };
+
+  const handleCloseModal = () => {
+    setModalState({
+      ...modalState,
+      isOpen: false,
+    });
   };
 
   return (
@@ -76,7 +100,7 @@ const PriceCard = ({ vehicle }) => {
                   onClick={() => handleOrderClick(1)}
                 >
                   <Truck className="size-7 mr-2" />
-                  Заказать от {calculatePrice(1)}₽
+                  От {calculatePrice(1)}₽
                 </Button>
               </div>
             ) : (
@@ -85,24 +109,40 @@ const PriceCard = ({ vehicle }) => {
                   Выберите время аренды:
                 </p>
                 <div className="grid grid-cols-2 gap-2">
-                  <Button className="cursor-pointer" variant="outline" onClick={() => handleOrderClick(1)}>
+                  <Button
+                    className="cursor-pointer"
+                    variant="outline"
+                    onClick={() => handleOrderClick(1)}
+                  >
                     1 час
                     <br />
                     <span className="font-bold">{calculatePrice(1)}₽</span>
                   </Button>
-                  <Button className="cursor-pointer" variant="outline" onClick={() => handleOrderClick(2)}>
+                  <Button
+                    className="cursor-pointer"
+                    variant="outline"
+                    onClick={() => handleOrderClick(2)}
+                  >
                     2 часа
                     <br />
                     <span className="font-bold">{calculatePrice(2)}₽</span>
                   </Button>
                 </div>
                 <div className="grid grid-cols-2 gap-2">
-                  <Button className="cursor-pointer" variant="outline" onClick={() => handleOrderClick(3)}>
+                  <Button
+                    className="cursor-pointer"
+                    variant="outline"
+                    onClick={() => handleOrderClick(3)}
+                  >
                     3 часа
                     <br />
                     <span className="font-bold">{calculatePrice(3)}₽</span>
                   </Button>
-                  <Button className="cursor-pointer" variant="outline" onClick={() => handleOrderClick(4)}>
+                  <Button
+                    className="cursor-pointer"
+                    variant="outline"
+                    onClick={() => handleOrderClick(4)}
+                  >
                     Доп. час
                     <br />
                     <span className="font-bold">{calculatePrice(4)}₽</span>
@@ -113,6 +153,16 @@ const PriceCard = ({ vehicle }) => {
           </div>
         </CardContent>
       </Card>
+
+      <OrderModal
+        isOpen={modalState.isOpen}
+        onClose={handleCloseModal}
+        vehicle={vehicle}
+        hours={modalState.isCustomHour ? null : modalState.hours}
+        price={modalState.isCustomHour ? null : modalState.price}
+        vehicles={allVehicles}
+        isCustomHour={modalState.isCustomHour}
+      />
     </>
   );
 };

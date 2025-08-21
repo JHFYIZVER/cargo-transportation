@@ -27,7 +27,7 @@ const PriceContent = async ({ selectedType }) => {
   return (
     <div className="flex flex-col space-y-6 items-center">
       {autopark.length > 0 ? (
-        autopark.map((item) => <PriceCard key={item.id} vehicle={item} />)
+        autopark.map((item) => <PriceCard allVehicles={autopark} key={item.id} vehicle={item} />)
       ) : (
         <p className="text-white">Транспорт данного типа не найден</p>
       )}

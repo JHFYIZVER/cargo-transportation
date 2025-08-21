@@ -339,8 +339,14 @@ const OrderModal = ({
               </Label>
             </div>
 
-            <Button className="cursor-pointer w-full mt-5" type="submit">
-              Оформить заказ за {calculatedPrice}₽
+            <Button
+              disabled={isSubmitting}
+              className="cursor-pointer w-full mt-5"
+              type="submit"
+            >
+              {isSubmitting
+                ? "Отправка..."
+                : `Оформить заказ за ${calculatedPrice}₽`}
             </Button>
 
             <Label className="flex items-start space-x-2">

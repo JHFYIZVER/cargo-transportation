@@ -5,7 +5,7 @@ const Hero = () => {
     <section
       className="main-hero-section w-full flex flex-col items-center justify-center object-contan min-h-[600px] p-5"
       style={{
-        backgroundImage: "url('/hero.png')",
+        backgroundImage: "url('/hero.webp')",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",

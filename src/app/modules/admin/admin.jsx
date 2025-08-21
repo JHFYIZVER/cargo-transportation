@@ -14,6 +14,7 @@ const Admin = async () => {
     getAllOrders(),
     getAllVehicles(),
   ]);
+
   return (
     <section>
       <h1 className="text-3xl md:text-5xl lg:text-6xl font-black mb-4 uppercase text-white">

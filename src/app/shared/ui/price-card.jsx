@@ -16,7 +16,7 @@ const PriceCard = ({ vehicle, allVehicles }) => {
   });
 
   const calculatePrice = (hours) => {
-    if (vehicle.type === "TANKER") return 15000;
+    if (vehicle.type === "TANKER") vehicle.basePrice;
     if (hours === 1) return vehicle.basePrice;
     if (hours === 2) return Math.round(vehicle.basePrice * 1.8);
     if (hours === 3) return Math.round(vehicle.basePrice * 2.5);
@@ -29,15 +29,6 @@ const PriceCard = ({ vehicle, allVehicles }) => {
       hours,
       price: calculatePrice(hours),
       isCustomHour: hours === 4,
-    });
-  };
-
-  const handleCustomHourClick = () => {
-    setModalState({
-      isOpen: true,
-      hours: 1,
-      price: 0,
-      isCustomHour: true,
     });
   };
 

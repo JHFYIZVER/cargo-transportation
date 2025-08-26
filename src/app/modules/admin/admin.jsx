@@ -9,6 +9,9 @@ import DeleteForm from "./delete-form";
 import OrderList from "./order-list";
 import { getAllOrders } from "./model/get-all-orders";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 const Admin = async () => {
   const [orders, vehicles] = await Promise.all([
     getAllOrders(),

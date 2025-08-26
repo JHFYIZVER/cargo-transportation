@@ -1,10 +1,9 @@
 "use server";
 
 import db from "@/app/shared/prisma/lib/db";
-import { unstable_noStore as noStore } from "next/cache";
+
 export const getAllOrders = async () => {
   try {
-    noStore();
     const orders = await db.order.findMany({
       include: {
         user: {

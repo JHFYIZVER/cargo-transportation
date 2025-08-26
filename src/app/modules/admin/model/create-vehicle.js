@@ -1,7 +1,6 @@
 "use server";
 import db from "@/app/shared/prisma/lib/db";
 import { cloudinary } from "@/lib/cloudinary";
-import { revalidatePath } from "next/cache";
 
 export const createVehicle = async (formData) => {
   try {
@@ -16,7 +15,7 @@ export const createVehicle = async (formData) => {
     });
 
     const imageUrl = uploadResponse.secure_url;
-    revalidatePath("/dashboard/admin");
+
     return await db.vehicle.create({
       data: {
         name: formData.get("name"),

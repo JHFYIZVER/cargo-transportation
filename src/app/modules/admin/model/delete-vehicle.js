@@ -1,7 +1,6 @@
 "use server";
 import db from "@/app/shared/prisma/lib/db";
-import fs from "fs";
-import path from "path";
+import { cloudinary } from "@/lib/cloudinary";
 
 export const deleteVehicle = async (id) => {
   try {
@@ -12,16 +11,17 @@ export const deleteVehicle = async (id) => {
     if (!vehicle) {
       throw new Error("Транспортное средство не найдено");
     }
-    if (vehicle.image) {
-      const imagePath = path.join(
-        process.cwd(),
-        "public",
-        "vehicle",
-        vehicle.image
-      );
 
-      if (fs.existsSync(imagePath)) {
-        fs.unlinkSync(imagePath);
+    if (vehicle.image) {
+      try {
+        const urlParts = vehicle.image.split("/");
+        const fileName = urlParts[urlParts.length - 1];
+        const publicId = fileName.split(".")[0];
+        const fullPublicId = `vehicles/${publicId}`;
+        await cloudinary.uploader.destroy(fullPublicId);
+      } catch (cloudinaryError) {
+        console.error("Error deleting image from Cloudinary:", cloudinaryError);
+    
       }
     }
     await db.vehicle.delete({

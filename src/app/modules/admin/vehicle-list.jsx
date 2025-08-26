@@ -1,3 +1,4 @@
+"use client"
 import VehicleCard from "@/app/shared/ui/vehicle-card";
 import React from "react";
 

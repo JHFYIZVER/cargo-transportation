@@ -1,31 +1,37 @@
 "use server";
 import db from "@/app/shared/prisma/lib/db";
-import fs from "fs";
-import path from "path";
+import { cloudinary } from "@/lib/cloudinary";
 
 export const createVehicle = async (formData) => {
-  console.log(formData);
+  try {
+    const imageFile = formData.get("image");
+    const imageBuffer = await imageFile.arrayBuffer();
+    const base64Image = Buffer.from(imageBuffer).toString("base64");
+    const dataURI = `data:${imageFile.type};base64,${base64Image}`;
 
-  const imageFile = formData.get("image");
+    const uploadResponse = await cloudinary.uploader.upload(dataURI, {
+      folder: "vehicles",
+      resource_type: "auto",
+    });
 
-  const fileName = `vehicle-${Date.now()}${path.extname(imageFile.name)}`;
-  const uploadPath = path.join(process.cwd(), "public", "vehicle", fileName);
+    const imageUrl = uploadResponse.secure_url;
 
-  const fileBuffer = await imageFile.arrayBuffer();
-  fs.writeFileSync(uploadPath, Buffer.from(fileBuffer));
-
-  return await db.vehicle.create({
-    data: {
-      name: formData.get("name"),
-      type: formData.get("type"),
-      description: formData.get("description"),
-      basePrice: parseFloat(formData.get("basePrice")),
-      priceCoefficient: parseFloat(formData.get("priceCoefficient")),
-      width: parseFloat(formData.get("width")),
-      length: parseFloat(formData.get("length")),
-      height: parseFloat(formData.get("height")),
-      volume: parseFloat(formData.get("volume")),
-      image: `${fileName}`,
-    },
-  });
+    return await db.vehicle.create({
+      data: {
+        name: formData.get("name"),
+        type: formData.get("type"),
+        description: formData.get("description"),
+        basePrice: parseFloat(formData.get("basePrice")),
+        priceCoefficient: parseFloat(formData.get("priceCoefficient")),
+        width: parseFloat(formData.get("width")),
+        length: parseFloat(formData.get("length")),
+        height: parseFloat(formData.get("height")),
+        volume: parseFloat(formData.get("volume")),
+        image: imageUrl,
+      },
+    });
+  } catch (error) {
+    console.error("Error creating vehicle:", error);
+    throw new Error("Failed to create vehicle");
+  }
 };

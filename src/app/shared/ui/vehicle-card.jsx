@@ -1,6 +1,6 @@
 "use client";
 import { IoMdInformationCircle } from "react-icons/io";
-import Image from "next/image";
+import { CldImage } from "next-cloudinary";
 import { useState } from "react";
 import {
   CardDescription,
@@ -22,15 +22,15 @@ const VehicleCard = ({ vehicle }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <Card className="flex flex-col sm:justify-between sm:flex-row sm:items-center w-full gap-3 h-auto bg-[#282A2D] border-none text-white max-w-5xl">
+    <Card className="flex flex-col sm:justify-between sm:flex-row sm:items-center w-full gap-3 h-auto bg-[#282A2D] border-none text-white">
       <CardHeader className="flex w-full max-w-xs items-center justify-center">
         <div className="relative w-full group overflow-hidden rounded-lg">
-          <Image
-            src={`/vehicle/${vehicle.image}`}
+          <CldImage
+            src={`${vehicle.image}`}
             alt={vehicle.name}
             width={300}
             height={300}
-            className="object-cover transition-transform duration-300 group-hover:scale-105"
+            className="object-cover transition-transform duration-300 scale-90 group-hover:scale-95"
           />
           <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity" />
         </div>

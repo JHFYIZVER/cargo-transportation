@@ -28,7 +28,8 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/app/shared/ui/popover";
-import Image from "next/image";
+import { CldImage } from "next-cloudinary";
+
 import dynamic from "next/dynamic";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -212,8 +213,8 @@ const OrderModal = ({
                   {vehicles.map((v) => (
                     <SelectItem key={v.id} value={v.id}>
                       <div className="flex items-center gap-2">
-                        <Image
-                          src={`/vehicle/${v.image}`}
+                        <CldImage
+                          src={`${v.image}`}
                           alt={v.name}
                           width={50}
                           height={50}

@@ -10,6 +10,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useState, useEffect } from "react";
 import { VehicleType } from "@prisma/client";
 import { Textarea } from "@/app/shared/ui/textarea";
+import { CldImage } from "next-cloudinary";
 import {
   Select as SelectUI,
   SelectContent,
@@ -18,7 +19,6 @@ import {
   SelectValue,
   Select,
 } from "@/app/shared/ui/select";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 const UpdateForm = ({ vehicles }) => {
@@ -58,7 +58,7 @@ const UpdateForm = ({ vehicles }) => {
       });
 
       if (vehicle.image) {
-        setImagePreview(`/vehicle/${vehicle.image}`);
+        setImagePreview(`${vehicle.image}`);
       } else {
         setImagePreview(null);
       }
@@ -96,6 +96,8 @@ const UpdateForm = ({ vehicles }) => {
       setIsSubmitting(false);
     }
   };
+
+  console.log(imagePreview);
 
   const handleImageChange = (e) => {
     const files = e.target.files;
@@ -336,7 +338,7 @@ const UpdateForm = ({ vehicles }) => {
                 />
                 {imagePreview && (
                   <div className="mt-2">
-                    <Image
+                    <CldImage
                       src={imagePreview}
                       alt="Preview"
                       width={200}
@@ -365,9 +367,7 @@ const UpdateForm = ({ vehicles }) => {
                   onClick={() => {
                     reset();
                     setImagePreview(
-                      selectedVehicle?.image
-                        ? `/vehicle/${selectedVehicle.image}`
-                        : null
+                      selectedVehicle?.image ? `${selectedVehicle.image}` : null
                     );
                     setSelectedFile(null);
                   }}

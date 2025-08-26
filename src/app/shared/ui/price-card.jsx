@@ -1,7 +1,8 @@
 "use client";
+
 import React, { useState } from "react";
 import { Card, CardHeader, CardTitle, CardContent } from "./card";
-import Image from "next/image";
+import { CldImage } from "next-cloudinary";
 import { Button } from "./button";
 import { Info, Truck, Clock, Ruler, Box } from "lucide-react";
 import OrderModal from "@/app/modules/order-modal/order-modal";
@@ -11,7 +12,7 @@ const PriceCard = ({ vehicle, allVehicles }) => {
     isOpen: false,
     hours: 1,
     price: 0,
-    isCustomHour: false, // Добавляем флаг для дополнительного часа
+    isCustomHour: false,
   });
 
   const calculatePrice = (hours) => {
@@ -71,12 +72,12 @@ const PriceCard = ({ vehicle, allVehicles }) => {
             )}
           </div>
           <div className="relative w-full group overflow-hidden rounded-lg">
-            <Image
-              src={`/vehicle/${vehicle.image}`}
+            <CldImage
+              src={`${vehicle.image}`}
               alt={vehicle.name}
               width={300}
               height={300}
-              className="object-cover transition-transform duration-300 group-hover:scale-105"
+              className="object-cover transition-transform duration-300 scale-90 group-hover:scale-95"
             />
             <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity" />
           </div>

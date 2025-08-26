@@ -1,7 +1,7 @@
 export const calculatePrice = (hours, vehicleId, vehicles, vehicle) => {
   const selectedVehicle = vehicles.find((v) => v.id === vehicleId) || vehicle;
 
-  if (selectedVehicle.type === "TANKER") return 15000;
+  if (selectedVehicle.type === "TANKER") return selectedVehicle.basePrice;
 
   if (hours === 1) return selectedVehicle.basePrice;
   if (hours === 2) return Math.round(selectedVehicle.basePrice * 1.8);

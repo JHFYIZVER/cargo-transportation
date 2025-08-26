@@ -1,11 +1,10 @@
-// components/map-picker.jsx
+
 "use client";
 import { useState } from "react";
 import { MapContainer, TileLayer, Marker, useMapEvents } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 
-// Фикс для иконок маркера
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
   iconRetinaUrl:
@@ -16,7 +15,6 @@ L.Icon.Default.mergeOptions({
     "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png",
 });
 
-// components/map-picker.jsx
 const MapClickHandler = ({ onAddressSelect }) => {
   const [position, setPosition] = useState(null);
 

@@ -4,7 +4,7 @@ export function getRussianVehicleName(vehicleType) {
     LIGHT_TRUCK: "Лёгкие грузовики",
     TENT_TRUCK: "Тентованные фуры",
     REFRIGERATOR: "Рефрижераторы",
-    TANKER: "Фуры",
+    TANKER: "Магистральные перевозки",
   };
 
   return names[vehicleType] || vehicleType;

@@ -132,7 +132,13 @@ const OrderModal = ({
 
   return (
     <>
-      <Dialog open={isOpen} onOpenChange={onClose}>
+      <Dialog
+        open={isOpen}
+        onOpenChange={() => {
+          reset();
+          onClose();
+        }}
+      >
         <DialogContent className="sm:max-w-[600px] max-h-[90vh] overflow-y-auto text-white">
           <DialogHeader>
             <DialogTitle>Оформление заказа</DialogTitle>

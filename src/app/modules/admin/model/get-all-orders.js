@@ -1,7 +1,6 @@
 "use server";
 
 import db from "@/app/shared/prisma/lib/db";
-
 export const getAllOrders = async () => {
   try {
     const orders = await db.order.findMany({
@@ -20,7 +19,7 @@ export const getAllOrders = async () => {
       orderBy: {
         createdAt: "desc",
       },
-      next: { revalidate: 0 },
+      cache: "no-store",
     });
 
     return orders;

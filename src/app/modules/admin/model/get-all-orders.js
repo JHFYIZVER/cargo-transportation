@@ -20,6 +20,7 @@ export const getAllOrders = async () => {
       orderBy: {
         createdAt: "desc",
       },
+      next: { revalidate: 0 },
     });
 
     return orders;

@@ -7,7 +7,11 @@ const nextConfig = {
         headers: [
           {
             key: "Cache-Control",
-            value: "no-cache, no-store, must-revalidate",
+            value: "no-store, max-age=0",
+          },
+          {
+            key: "CDN-Cache-Control",
+            value: "no-store",
           },
         ],
       },

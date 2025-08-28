@@ -10,6 +10,7 @@ import OrderList from "./order-list";
 import { getAllOrders } from "./model/get-all-orders";
 
 export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
 export const revalidate = 0;
 
 const Admin = async () => {

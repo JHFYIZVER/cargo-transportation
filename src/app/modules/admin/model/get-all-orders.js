@@ -8,11 +8,14 @@ export const getAllOrders = async () => {
       include: {
         user: {
           select: {
+            id: true,
             name: true,
+            email: true,
           },
         },
         vehicle: {
           select: {
+            id: true,
             name: true,
           },
         },

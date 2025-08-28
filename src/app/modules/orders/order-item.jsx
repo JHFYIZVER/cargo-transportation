@@ -1,7 +1,6 @@
 import {
   Card,
   CardContent,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/app/shared/ui/card";
@@ -42,7 +41,7 @@ const OrderItem = ({ order }) => {
 
   return (
     <Card className="bg-[#282A2D] border-none flex flex-col md:flex-row text-white shadow-lg hover:shadow-xl transition-shadow duration-300">
-      <CardHeader className="flex-1 p-6 border-r border-gray-600">
+      <CardHeader className="flex-1 h-fit p-6">
         <div className="flex flex-wrap gap-3 items-start justify-between mb-4">
           <div className="flex items-center gap-3">
             <Truck className="w-6 h-6 text-primary" />
@@ -105,7 +104,7 @@ const OrderItem = ({ order }) => {
         </div>
       </CardHeader>
 
-      <CardContent className="lg:w-48 flex md:flex-col flex-row flex-wrap gap-5 items-center justify-between">
+      <CardContent className="lg:w-48 flex md:flex-col flex-row flex-wrap gap-5 items-center justify-between border-t md:border-t-0 md:border-l border-gray-600">
         <div className="text-center mb-4">
           <p className="text-gray-400 text-sm mb-1">Стоимость</p>
           <p className="text-2xl font-bold text-green-400">
@@ -116,10 +115,7 @@ const OrderItem = ({ order }) => {
         {order.cargoDescription && (
           <div className="text-center">
             <p className="text-gray-400 text-sm mb-1">Груз</p>
-            <p
-              className="text-sm font-medium truncate"
-              title={order.cargoDescription}
-            >
+            <p className="text-sm font-medium max-w-30 break-words text-wrap">
               {order.cargoDescription}
             </p>
           </div>

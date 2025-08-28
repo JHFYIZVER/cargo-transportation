@@ -16,5 +16,8 @@ export const getUserOrders = async () => {
         },
       },
     },
+    orderBy: {
+      createdAt: "desc",
+    },
   });
 };

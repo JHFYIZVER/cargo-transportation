@@ -34,34 +34,34 @@ const Admin = async () => {
             defaultValue="list"
             className="flex gap-6 lg:flex-row justify-between"
           >
-            <TabsList className="flex flex-col h-auto max-h-59 max-w-64 w-full space-y-2">
+            <TabsList className="flex flex-col h-auto max-h-59 bg-white/5  max-w-64 w-full space-y-2">
               <TabsTrigger
                 value="list"
-                className="w-full justify-start py-3 px-4 cursor-pointer mb-0"
+                className="w-full justify-start py-3 px-4 cursor-pointer mb-0 text-white!"
               >
                 Список транспорта
               </TabsTrigger>
               <TabsTrigger
                 value="create"
-                className="w-full justify-start py-3 px-4 cursor-pointer mb-0"
+                className="w-full justify-start py-3 px-4 cursor-pointer mb-0 text-white!"
               >
                 Создать транспорт
               </TabsTrigger>
               <TabsTrigger
                 value="update"
-                className="w-full justify-start py-3 px-4 cursor-pointer mb-0"
+                className="w-full justify-start py-3 px-4 cursor-pointer mb-0 text-white!"
               >
                 Обновить транспорт
               </TabsTrigger>
               <TabsTrigger
                 value="delete"
-                className="w-full justify-start py-3 px-4 cursor-pointer mb-0"
+                className="w-full justify-start py-3 px-4 cursor-pointer mb-0 text-white!"
               >
                 Удалить транспорт
               </TabsTrigger>
               <TabsTrigger
                 value="order"
-                className="w-full justify-start py-3 px-4 cursor-pointer mb-0"
+                className="w-full justify-start py-3 px-4 cursor-pointer mb-0 text-white!"
               >
                 Просмотр заказов
               </TabsTrigger>

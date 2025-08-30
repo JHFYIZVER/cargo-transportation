@@ -9,7 +9,6 @@ export const getAllOrders = async () => {
       headers: {
         "Content-Type": "application/json",
       },
-      next: { revalidate: 0 },
     });
 
     if (!response.ok) {

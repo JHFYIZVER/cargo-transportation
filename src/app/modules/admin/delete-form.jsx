@@ -9,9 +9,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/app/shared/ui/select";
-import { deleteVehicle } from "./model/delete-vehicle";
 import { useRouter } from "next/navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/app/shared/ui/card";
+import { deleteVehicle } from "./model/vehicle-actions";
 
 const DeleteForm = ({ vehicles }) => {
   const [selectedVehicleId, setSelectedVehicleId] = useState("");

@@ -11,8 +11,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/app/shared/ui/select";
-import { updateOrderStatus } from "./model/update-order-status";
 import { useRouter } from "next/navigation";
+import { updateOrderStatus } from "./model/order-actions";
 
 const statusOptions = [
   "Ожидание",

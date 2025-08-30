@@ -1,5 +1,4 @@
 import React from "react";
-import { getAllVehicles } from "./model/get-all-vehicles";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/app/shared/ui/tabs";
 import { Card, CardContent, CardHeader, CardTitle } from "@/app/shared/ui/card";
 import VehicleList from "./vehicle-list";
@@ -7,11 +6,8 @@ import UpdateForm from "./update-form";
 import CreateForm from "./create-form";
 import DeleteForm from "./delete-form";
 import OrderList from "./order-list";
-import { getAllOrders } from "./model/get-all-orders";
-
-export const dynamic = "force-dynamic";
-export const fetchCache = "force-no-store";
-export const revalidate = 0;
+import { getAllOrders } from "./model/order-actions";
+import { getAllVehicles } from "./model/vehicle-actions";
 
 const Admin = async () => {
   const [orders, vehicles] = await Promise.all([

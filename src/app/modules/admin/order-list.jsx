@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import OrderItemAdmin from "./order-item-admin";
+import { updateOrderStatus } from "./model/order-actions";
 
 const OrderList = ({ orders }) => {
   const [updatingId, setUpdatingId] = useState(null);

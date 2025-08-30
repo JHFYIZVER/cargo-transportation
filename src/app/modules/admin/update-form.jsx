@@ -5,7 +5,6 @@ import { vehicleSchema } from "./lib/schema";
 import { Card, CardContent, CardHeader, CardTitle } from "@/app/shared/ui/card";
 import { Input } from "@/app/shared/ui/input";
 import { Button } from "@/app/shared/ui/button";
-import { updateVehicle } from "./model/update-vehicle";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState, useEffect } from "react";
 import { VehicleType } from "@prisma/client";
@@ -20,6 +19,7 @@ import {
   Select,
 } from "@/app/shared/ui/select";
 import { useRouter } from "next/navigation";
+import { updateVehicle } from "./model/vehicle-actions";
 
 const UpdateForm = ({ vehicles }) => {
   const [selectedVehicleId, setSelectedVehicleId] = useState(null);

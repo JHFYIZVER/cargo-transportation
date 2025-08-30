@@ -1,6 +1,5 @@
 import Admin from "@/app/modules/admin/admin";
 import AdminBreadcrumbs from "@/app/modules/admin/admin-breadcrumbs";
-import React from "react";
 
 const page = () => {
   return (

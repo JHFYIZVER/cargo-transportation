@@ -1,4 +1,3 @@
-import React from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/app/shared/ui/tabs";
 import { Card, CardContent, CardHeader, CardTitle } from "@/app/shared/ui/card";
 import VehicleList from "./vehicle-list";

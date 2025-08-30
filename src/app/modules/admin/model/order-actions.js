@@ -4,7 +4,7 @@ import { revalidatePath } from "next/cache";
 
 export const getAllOrders = async () => {
   try {
-    const response = await fetch(`/api/admin/orders`, {
+    const response = await fetch(`https://cargo-transportation-two.vercel.app/api/admin/orders`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -24,12 +24,11 @@ export const getAllOrders = async () => {
 
 export const updateOrderStatus = async (orderId, newStatus) => {
   try {
-    const response = await fetch(`/api/admin/orders`, {
+    const response = await fetch(`https://cargo-transportation-two.vercel.app/api/admin/orders`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
-      next: { revalidate: 0 },
       body: JSON.stringify({ orderId, newStatus }),
     });
 

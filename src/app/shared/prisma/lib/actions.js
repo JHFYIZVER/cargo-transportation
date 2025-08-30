@@ -1,3 +1,4 @@
+"use server";
 import bcrypt from "bcryptjs";
 import db from "./db";
 import { signUpSchema } from "./schema";

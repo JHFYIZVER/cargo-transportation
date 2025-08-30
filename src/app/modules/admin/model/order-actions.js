@@ -1,11 +1,10 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-const API_BASE_URL = process.env.NEXTAUTH_URL || "http://localhost:3000";
 
 export const getAllOrders = async () => {
   try {
-    const response = await fetch(`${API_BASE_URL}/api/admin/orders`, {
+    const response = await fetch(`/api/admin/orders`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -26,7 +25,7 @@ export const getAllOrders = async () => {
 
 export const updateOrderStatus = async (orderId, newStatus) => {
   try {
-    const response = await fetch(`${API_BASE_URL}/api/admin/orders`, {
+    const response = await fetch(`/api/admin/orders`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

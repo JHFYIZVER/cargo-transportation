@@ -2,11 +2,9 @@
 
 import { revalidatePath } from "next/cache";
 
-const API_BASE_URL = process.env.NEXTAUTH_URL || "http://localhost:3000";
-
 export const getAllVehicles = async () => {
   try {
-    const response = await fetch(`${API_BASE_URL}/api/admin/vehicles`, {
+    const response = await fetch(`/api/admin/vehicles`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -27,7 +25,7 @@ export const getAllVehicles = async () => {
 
 export const createVehicle = async (formData) => {
   try {
-    const response = await fetch(`${API_BASE_URL}/api/admin/vehicles`, {
+    const response = await fetch(`/api/admin/vehicles`, {
       method: "POST",
       body: formData,
       next: { revalidate: 0 },
@@ -48,7 +46,7 @@ export const createVehicle = async (formData) => {
 
 export const updateVehicle = async (formData) => {
   try {
-    const response = await fetch(`${API_BASE_URL}/api/admin/vehicles`, {
+    const response = await fetch(`/api/admin/vehicles`, {
       method: "PUT",
       body: formData,
       next: { revalidate: 0 },
@@ -69,16 +67,13 @@ export const updateVehicle = async (formData) => {
 
 export const deleteVehicle = async (id) => {
   try {
-    const response = await fetch(
-      `${API_BASE_URL}/api/admin/vehicles?id=${id}`,
-      {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        next: { revalidate: 0 },
-      }
-    );
+    const response = await fetch(`/api/admin/vehicles?id=${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      next: { revalidate: 0 },
+    });
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
